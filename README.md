@@ -10,7 +10,7 @@ The following assumes the use of `node@>=10`.
 
 ## Compile Contracts
 
-`truffle compile`
+`yarn compile`
 
 ## Run Tests
 
