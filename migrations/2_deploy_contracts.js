@@ -4,17 +4,11 @@ const DipoleRouter = artifacts.require("DipoleRouter");
 const SmartChefFactory = artifacts.require("SmartChefFactory"); // 社区治理等地址
 const CombinedSwapAddRemoveLiquidity = artifacts.require("CombinedSwapAddRemoveLiquidity");
 
-const feeToSetter='0x8499C7F7A73ee7Ff3Cba9eC73111700F4bFa30F8'; //有权更改 feeTo 地址的账户,为当前合约部署者
-const smartChefOwner = '0xf905737347167cBd098A211ce969e19A5BF8DAfC'; // 部署活动的管理员账户
+const feeToSetter='0x810b7bacEfD5ba495bB688bbFD2501C904036AB7'; //有权更改 feeTo 地址的账户,为当前合约部署者
+const smartChefOwner = '0x810b7bacEfD5ba495bB688bbFD2501C904036AB7'; // 部署活动的管理员账户
 
-const wlatAddr = '0xCC9fBAB49C29B3FF536A3d94873e988cC4A572aF'; // WLAT合约地址
-const pusdtAddr = '0x9BEedA978b7E916F5DB4bBb24a0B7d5DC90D1066';
-const pusdcAddr = '0xAEB97D93f6AEc7d3BaDD41853F012E67cDb9906d';
-const pdaiAddr = '0xdCf4348243170F8b5f80b59792E2cF5c1E41fa64';
-const cusdtAddr = '0xA31B732A6272E7F1aCdf172f56B2188A777eFd0A';
-const cusdcAddr = '0xd02e2965F64CfD3C80e783ADdabf346fb71f0f0b';
-const cdaiAddr = '0xFc61b7cC9b0ACbe5348706A36ce17dfD18c5BF11';
-const scgtAddr = '0xd9FA928fe15C07066434aC555f24a091B66a45f8';
+const usdtAddr = '0x97003a080D320eA015BEDba30df25e65Dc32164f'; // USDT代币合约地址
+const wlatAddr = '0x02406D561069cBed27eF8Ea20AFD41779A90e2Bf'; // WLAT合约地址
 
 async function getPairAddress(factory, token0, token1) {
    let addr = await factory.getPair.call(token0, token1);
@@ -51,18 +45,6 @@ module.exports = async function(deployer) {
    var initHash = await factory.INIT_CODE_PAIR_HASH.call();
    console.log("initHash is at:",initHash);
 
-   const latpusdt = await getPairAddress(factory, pusdtAddr, wlatAddr);
-   console.log('lat/pusdt pair is at:', latpusdt);
-   const latpusdc = await getPairAddress(factory, pusdcAddr, wlatAddr);
-   console.log('lat/pusdc pair is at:', latpusdc);
-   const latpdai = await getPairAddress(factory, pdaiAddr, wlatAddr);
-   console.log('lat/pdai pair is at:', latpdai);
-   const latcusdt = await getPairAddress(factory, cusdtAddr, wlatAddr);
-   console.log('lat/cusdt pair is at:', latcusdt);
-   const latcusdc = await getPairAddress(factory, cusdcAddr, wlatAddr);
-   console.log('lat/cusdc pair is at:', latcusdc);
-   const latcdai = await getPairAddress(factory, cdaiAddr, wlatAddr);
-   console.log('lat/cdai pair is at:', latcdai);
-   const latscgt = await getPairAddress(factory, scgtAddr, wlatAddr);
-   console.log('lat/scgt pair is at:', latscgt);
+   const latusdt = await getPairAddress(factory, usdtAddr, wlatAddr);
+   console.log('lat/usdt pair is at:', latusdt);
 };

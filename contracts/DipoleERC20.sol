@@ -41,7 +41,7 @@ contract DipoleERC20 is IDipoleERC20 {
                 keccak256('EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'),
                 keccak256(bytes(name)),
                 keccak256(bytes('1')),
-                2206132,
+                210425,
                 address(this)
             )
         );

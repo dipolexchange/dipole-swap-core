@@ -174,7 +174,7 @@
 
 "@dipoleswap/dipole-swap-lib@https://github.com/dipolexchange/dipole-swap-lib.git#main":
   version "0.0.4"
-  resolved "https://github.com/dipolexchange/dipole-swap-lib.git#910abda48f660725c8333aa273327befd2bb43b2"
+  resolved "https://github.com/dipolexchange/dipole-swap-lib.git#f15e1f866d2e00d398f4a0c73783ec551909b43d"
 
 "@ethereum-waffle/chai@^2.4.1":
   version "2.4.1"
