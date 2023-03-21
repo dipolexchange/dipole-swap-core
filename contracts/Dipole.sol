@@ -1,10 +1,11 @@
 pragma solidity ^0.5.16;
 pragma experimental ABIEncoderV2;
 
+//import "./SafeMath.sol";
 import '@dipoleswap/dipole-swap-lib/contracts/math/SafeMath.sol';
-import "@dipoleswap/dipole-swap-lib/contracts/token/PEP20/IPEP20.sol";
+import "@dipoleswap/dipole-swap-lib/contracts/token/BEP20/IBEP20.sol";
 
-contract Dipole is IPEP20 {
+contract Dipole is IBEP20 {
     /// @notice EIP-20 token name for this token
     string public constant name = "DipoleSwap Token";
 
@@ -96,7 +97,7 @@ contract Dipole is IPEP20 {
         emit MinterChanged(address(0), minter);
         mintingAllowedAfter = SafeMath.add(block.timestamp, minimumTimeBetweenMints);
         DOMAIN_SEPARATOR = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), getChainId(), address(this)));
-        DOMAIN_SEPARATOR_NEW = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), 210425, address(this)));
+        DOMAIN_SEPARATOR_NEW = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), 2203181, address(this)));
     }
 
     /**
@@ -430,7 +431,7 @@ contract Dipole is IPEP20 {
     }
 
     /**
-     * @dev Returns the pep token owner.
+     * @dev Returns the bep token owner.
      */
     function getOwner() external view returns (address) {
         return minter;
